@@ -1,14 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+//import { MedicosComponent } from './medicos/medicos.component';
+import { DiagnosticosComponent } from './diagnosticos/diagnosticos.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    //MedicosComponent,
+    DiagnosticosComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
