@@ -1,63 +1,26 @@
+<div class="container">
 <h1>{{titulo}}</h1>
 
+<button class="btn btn-info" type="button" [routerLink] = "['/diagnosticos/form']">Nuevo Diagnostico</button>
+
 <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  <table class="table">
-    <thead class="thead-light">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">ValoracionEspecialista</th>
+      <th scope="col">Enfermedad</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let diagnostico of diagnosticos">
+      <th scope="row">{{diagnostico.diagnostico_id}}</th>
+      <td>{{diagnostico.valoracionEspecialista}}</td>
+      <td>{{diagnostico.enfermedad}}</td>
+      <td><button type="button" name="button" class="btn btn-primary" [routerLink]="['/diagnosticos/form',diagnostico.diagnostico_id]">Editar</button></td>
+      <td><button class="btn btn-danger" (click)="delete(diagnostico)">Eliminar</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>

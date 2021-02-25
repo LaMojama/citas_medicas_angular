@@ -10,13 +10,23 @@ import { MedicoService } from './medico.service';
 export class MedicosComponent implements OnInit {
 
   titulo:string="Lista de Medicos";
-  prueba:string="Esto es una prueba";
 
- // medicos:Medico[];
+ medicos:Medico[];
 
-  constructor() { }
+  constructor(private medicoService:MedicoService) { }
 
   ngOnInit(): void {
+    this.medicoService.getAll().subscribe(
+      e =>this.medicos=e
+    );
+  }
+
+  delete(medico:Medico):void{
+    this.medicoService.delete(medico.id).subscribe(
+      res=>this.medicoService.getAll().subscribe(
+        response=>this.medicos=response
+      )
+    );
   }
 
 }

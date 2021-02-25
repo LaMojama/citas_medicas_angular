@@ -1,0 +1,24 @@
+<div class="container">
+
+    <div class="card-body">
+        <h5 class="card-title">{{titulo}}</h5>
+        <form>
+            <div class="form-group row">
+                <label for="valoracionEspecialista" class="col-form-label col-sm-2">Valoracion Especialista</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="valoracionEspecialista" [(ngModel)]="diagnostico.valoracionEspecialista">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="enfermedad" class="col-form-label col-sm-2">Enfermedad</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="enfermedad" [(ngModel)]="diagnostico.enfermedad">
+                </div>
+            </div>
+            <button class="btn btn-success" role="button" (click)='create()' *ngIf="!diagnostico.diagnostico_id else elseBlock">Guardar</button>
+            <ng-template #elseBlock>
+                <button class="btn btn-success" role="button" (click)='update()'>Actualizar</button>
+            </ng-template>
+        </form>
+    </div>
+</div>

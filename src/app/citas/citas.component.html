@@ -1,0 +1,32 @@
+<div class="container">
+    <h1>{{titulo}}</h1>
+
+    <button class="btn btn-info" type="button" [routerLink] = "['/citas/form']">Nueva Cita</button>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Fecha y Hora</th>
+                <th scope="col">Motivo Cita</th>
+                <th scope="col">Diagnostico ID</th>
+                <th scope="col">Diagnostico ValoracionEspecialista</th>
+                <th scope="col">Diagnostico Enfermedad</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cita of citas">
+                <th scope="row">{{cita.cita_id}}</th>
+                <td>{{cita.fechaHora}}</td>
+                <td>{{cita.motivoCita}}</td>
+                <td>{{cita.diagnostico.diagnostico_id}}</td>
+                <td>{{cita.diagnostico.valoracionEspecialista}}</td>
+                <td>{{cita.diagnostico.enfermedad}}</td>
+                <td><button type="button" name="button" class="btn btn-primary" [routerLink]="['/citas/form',cita.cita_id]">Editar</button></td>
+                <td><button class="btn btn-danger" (click)="delete(cita)">Eliminar</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

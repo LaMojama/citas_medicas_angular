@@ -1,0 +1,24 @@
+<div class="container">
+
+    <div class="card-body">
+        <h5 class="card-title">{{titulo}}</h5>
+        <form>
+            <div class="form-group row">
+                <label for="fechaHora" class="col-form-label col-sm-2">Fecha y Hora</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="fechaHora" [(ngModel)]="cita.fechaHora">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="motivoCita" class="col-form-label col-sm-2">Motivo Cita</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="motivoCita" [(ngModel)]="cita.motivoCita">
+                </div>
+            </div>
+            <button class="btn btn-success" role="button" (click)='create()' *ngIf="!cita.cita_id else elseBlock">Guardar</button>
+            <ng-template #elseBlock>
+                <button class="btn btn-success" role="button" (click)='update()'>Actualizar</button>
+            </ng-template>
+        </form>
+    </div>
+</div>

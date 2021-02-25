@@ -8,13 +8,13 @@ import { Diagnostico } from './diagnostico';
 })
 export class DiagnosticoService {
 
-  private url:string="http://localhost:8080/api/diagnosticos/lista";
+  private url:string="http://localhost:8080/api/diagnosticos";
 
   constructor( private http:HttpClient ) { }
 
   // lista de diagnosticos
   getAll():Observable<Diagnostico[]>{
-    return this.http.get<Diagnostico[]>(this.url);
+    return this.http.get<Diagnostico[]>(this.url+'/lista');
   }
 
   // crear diagnostico

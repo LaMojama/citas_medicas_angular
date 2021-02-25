@@ -1,0 +1,42 @@
+<div class="container">
+
+    <div class="card-body">
+        <h5 class="card-title">{{titulo}}</h5>
+        <form>
+            <div class="form-group row">
+                <label for="Nombre" class="col-form-label col-sm-2">Nombre</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="Nombre" [(ngModel)]="medico.nombre">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Apellidos" class="col-form-label col-sm-2">Apellidos</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="Apellidos" [(ngModel)]="medico.apellidos">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Usuario" class="col-form-label col-sm-2">Usuario</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="Usuario" [(ngModel)]="medico.usuario">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Clave" class="col-form-label col-sm-2">Clave</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="Clave" [(ngModel)]="medico.clave">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="numColegiado" class="col-form-label col-sm-2">numColegiado</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="numColegiado" [(ngModel)]="medico.numColegiado">
+                </div>
+            </div>
+            <button class="btn btn-success" role="button" (click)='create()' *ngIf="!medico.id else elseBlock">Guardar</button>
+            <ng-template #elseBlock>
+                <button class="btn btn-success" role="button" (click)='update()'>Actualizar</button>
+            </ng-template>
+        </form>
+    </div>
+</div>

@@ -16,7 +16,15 @@ export class DiagnosticosComponent implements OnInit {
 
   ngOnInit(): void {
     this.diagnosticoService.getAll().subscribe(
-      d => this.diagnosticos=d
+      d =>this.diagnosticos=d
+    );
+  }
+
+  delete(diagnostico:Diagnostico):void{
+    this.diagnosticoService.delete(diagnostico.diagnostico_id).subscribe(
+      res=>this.diagnosticoService.getAll().subscribe(
+        response=>this.diagnosticos=response
+      )
     );
   }
 
