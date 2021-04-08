@@ -1,0 +1,17 @@
+<div class="container">
+
+    <div class="card-body">
+        <form>
+            <div class="form-group row">
+                <label for="pacienteId" class="col-form-label col-sm-2">ID Paciente</label>
+                <div class="col-sm-6">
+                    <input id="idpaciente" type="text" class="form-control" required name="ID Paciente" [(ngModel)]="paciente_id" #idpaciente="ngModel">
+                    <div *ngIf="idpaciente?.errors?.required">
+                        Campo necesario
+                      </div>
+                </div>
+            </div>
+            <button class="btn btn-outline-success" role="button" (click)='deleteCita()'>Cancelar Cita</button>
+        </form>
+    </div>
+</div>

@@ -6,18 +6,24 @@
             <div class="form-group row">
                 <label for="fechaHora" class="col-form-label col-sm-2">Fecha y Hora</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="fechaHora" [(ngModel)]="cita.fechaHora">
+                    <input type="text" class="form-control" required name="fechaHora" [(ngModel)]="cita.fechaHora" #fechaHora="ngModel">
+                    <div *ngIf="fechaHora?.errors?.required">
+                        Campo necesario
+                      </div>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="motivoCita" class="col-form-label col-sm-2">Motivo Cita</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="motivoCita" [(ngModel)]="cita.motivoCita">
+                    <input type="text" class="form-control" required name="motivoCita" [(ngModel)]="cita.motivoCita" #motivoCita="ngModel">
+                    <div *ngIf="motivoCita?.errors?.required">
+                        Campo necesario
+                      </div>
                 </div>
             </div>
-            <button class="btn btn-success" role="button" (click)='create()' *ngIf="!cita.cita_id else elseBlock">Guardar</button>
+            <button class="btn btn-outline-success" role="button" (click)='create()' *ngIf="!cita.cita_id else elseBlock">Guardar</button>
             <ng-template #elseBlock>
-                <button class="btn btn-success" role="button" (click)='update()'>Actualizar</button>
+                <button class="btn btn-outline-success" role="button" (click)='update()'>Actualizar</button>
             </ng-template>
         </form>
     </div>

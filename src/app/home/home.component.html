@@ -1,0 +1,28 @@
+<div class="container">
+
+    <div class="card-body">
+        <h5 class="display-5">Bienvenido a Citas Médicas</h5>
+        <p></p>
+        <form>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" name="Usuario" [(ngModel)]="usuario">
+                <label for="floatingInput">Usuario</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingPassword" name="Clave" [(ngModel)]="clave">
+                <label for="floatingPassword">Contraseña</label>
+            </div>
+            <p></p>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button class="btn btn-outline-success" role="button" (click)='loginMedico()'>Login como Médico</button>
+                <button class="btn btn-outline-success" role="button" (click)='loginPaciente()'>Login como Paciente</button>
+            </div>
+            <p></p>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button class="btn btn-outline-info" type="button" [routerLink]="['/medicos/form']">Registrar Médico</button>
+                <button class="btn btn-outline-info" type="button" [routerLink]="['/pacientes/form']">Registrar Paciente</button>
+            </div>
+           
+        </form>
+    </div>
+</div>

@@ -2,7 +2,7 @@ import { Diagnostico } from "../diagnosticos/diagnostico";
 
 export class Cita {
     cita_id:number;
-    fechaHora:String;
+    fechaHora:Date;
     motivoCita:String;
     diagnostico:Diagnostico;
 }

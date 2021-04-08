@@ -1,0 +1,38 @@
+
+<div class="container">
+    <h1 class="display-5">{{titulo}}</h1>
+    <p class="lead">
+      Estos son tus datos de usuario:
+    </p>    
+    <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">NSS</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Editar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">{{paciente.id}}</th>
+            <td>{{paciente.nombre}}</td>
+            <td>{{paciente.apellidos}}</td>
+            <td>{{paciente.nss}}</td>
+            <td>{{paciente.telefono}}</td>
+            <td>{{paciente.direccion}}</td>
+            <td><button type="button" name="button" class="btn btn-outline-info" [routerLink]="['/pacientesForm',paciente.id]">Editar</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="btn-group" role="group" aria-label="Basic outlined example">
+      <button class="btn btn-outline-secondary" type="button" (click)='verCitas()'>Ver tus citas</button>
+      <button class="btn btn-outline-secondary" type="button" (click)='verMedicos()'>Ver tus medicos</button>
+    </div>
+    <p></p>
+    <button type="button" name="button" class="btn btn-outline-info" [routerLink]="['/home']">Volver</button>
+    </div>
+      

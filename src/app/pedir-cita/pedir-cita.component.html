@@ -1,0 +1,35 @@
+<div class="container">
+
+    <div class="card-body">
+        <form>
+            <div class="form-group row">
+                <label for="pacienteId" class="col-form-label col-sm-2">ID Médico</label>
+                <div class="col-sm-6">
+                    <input id="idmedico" type="text" class="form-control" required name="ID Medico" [(ngModel)]="medico_id" #idmedico="ngModel">
+                    <div *ngIf="idmedico?.errors?.required">
+                        Campo necesario
+                      </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="fechaHora" class="col-form-label col-sm-2">Fecha y Hora</label>
+                <div class="col-sm-6">
+                    <input input type="text" class="form-control" required name="fechaHora" [(ngModel)]="cita.fechaHora" #fechahora="ngModel">
+                    <div *ngIf="fechahora?.errors?.required">
+                        Campo necesario
+                      </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="motivoCita" class="col-form-label col-sm-2">Motivo Cita</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" required name="motivoCita" [(ngModel)]="cita.motivoCita" #motivocita="ngModel">
+                    <div *ngIf="motivocita?.errors?.required">
+                        Campo necesario
+                      </div>
+                </div>
+            </div>
+            <button class="btn btn-outline-success" role="button" (click)='addCita()'>Pedir Cita</button>
+        </form>
+    </div>
+</div>

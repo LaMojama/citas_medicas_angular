@@ -37,13 +37,13 @@ export class FormMedicoComponent implements OnInit {
   create():void{
     console.log(this.medico);
     this.medicoService.create(this.medico).subscribe(
-      res=>this.router.navigate(['/medicos'])
+      res=>this.router.navigate(['/home'])
     );
   }
 
   update():void{
     this.medicoService.update(this.medico).subscribe(
-      res=>this.router.navigate(['/medicos'])
+      res=>this.router.navigate(['/medicos',this.medico.id])
     );
   }
 

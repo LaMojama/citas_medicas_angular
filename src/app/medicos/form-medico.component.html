@@ -6,36 +6,51 @@
             <div class="form-group row">
                 <label for="Nombre" class="col-form-label col-sm-2">Nombre</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="Nombre" [(ngModel)]="medico.nombre">
+                    <input type="text" class="form-control" required name="Nombre" [(ngModel)]="medico.nombre" #nombre="ngModel">
+                    <div *ngIf="nombre?.errors?.required">
+                        Campo necesario
+                      </div>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="Apellidos" class="col-form-label col-sm-2">Apellidos</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="Apellidos" [(ngModel)]="medico.apellidos">
+                    <input type="text" class="form-control" required name="Apellidos" [(ngModel)]="medico.apellidos" #apellidos="ngModel">
+                    <div *ngIf="apellidos?.errors?.required">
+                        Campo necesario
+                      </div>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="Usuario" class="col-form-label col-sm-2">Usuario</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="Usuario" [(ngModel)]="medico.usuario">
+                    <input type="text" class="form-control" required name="Usuario" [(ngModel)]="medico.usuario" #usuario="ngModel">
+                    <div *ngIf="usuario?.errors?.required">
+                        Campo necesario
+                      </div>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="Clave" class="col-form-label col-sm-2">Clave</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="Clave" [(ngModel)]="medico.clave">
+                    <input type="text" class="form-control" required name="Clave" [(ngModel)]="medico.clave" #clave="ngModel">
+                    <div *ngIf="clave?.errors?.required">
+                        Campo necesario
+                      </div>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="numColegiado" class="col-form-label col-sm-2">numColegiado</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="numColegiado" [(ngModel)]="medico.numColegiado">
+                    <input type="text" class="form-control" required name="numColegiado" [(ngModel)]="medico.numColegiado" #numColegiado="ngModel">
+                    <div *ngIf="numColegiado?.errors?.required">
+                        Campo necesario
+                      </div>
                 </div>
             </div>
-            <button class="btn btn-success" role="button" (click)='create()' *ngIf="!medico.id else elseBlock">Guardar</button>
+            <button class="btn btn-outline-success" role="button" (click)='create()' *ngIf="!medico.id else elseBlock">Guardar</button>
             <ng-template #elseBlock>
-                <button class="btn btn-success" role="button" (click)='update()'>Actualizar</button>
+                <button class="btn btn-outline-success" role="button" (click)='update()'>Actualizar</button>
             </ng-template>
         </form>
     </div>

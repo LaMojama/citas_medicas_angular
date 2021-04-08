@@ -1,11 +1,10 @@
 
 <div class="container">
-    <h1>{{titulo}}</h1>
+    <h1 class="display-5">{{titulo}}</h1>
     
-    <button class="btn btn-info" type="button" [routerLink]="['/pacientes/form']">Nuevo Paciente</button>
     
     <table class="table">
-        <thead class="thead-dark">
+        <thead class="thead-light">
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Nombre</th>
@@ -13,8 +12,6 @@
             <th scope="col">NSS</th>
             <th scope="col">Telefono</th>
             <th scope="col">Direccion</th>
-            <th scope="col">Editar</th>
-            <th scope="col">Eliminar</th>
           </tr>
         </thead>
         <tbody>
@@ -22,11 +19,9 @@
             <th scope="row">{{paciente.id}}</th>
             <td>{{paciente.nombre}}</td>
             <td>{{paciente.apellidos}}</td>
-            <td>{{paciente.NSS}}</td>
+            <td>{{paciente.nss}}</td>
             <td>{{paciente.telefono}}</td>
             <td>{{paciente.direccion}}</td>
-            <td><button type="button" name="button" class="btn btn-primary" [routerLink]="['/pacientes/form',paciente.id]">Editar</button></td>
-            <td><button class="btn btn-danger" (click)="delete(paciente)">Eliminar</button></td>
           </tr>
         </tbody>
       </table>

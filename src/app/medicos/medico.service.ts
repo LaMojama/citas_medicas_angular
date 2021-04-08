@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Medico } from './medico';
 import { Observable } from 'rxjs';
+import { Cita } from '../citas/cita';
+import { Diagnostico } from '../diagnosticos/diagnostico';
+import { Paciente } from '../pacientes/paciente';
 
 @Injectable({
   providedIn: 'root'
@@ -37,4 +40,23 @@ export class MedicoService {
     return this.http.delete<Medico>(this.url+'/'+id);
   }
 
+  findByUsuario(name:string):Observable<Medico[]>{
+    return this.http.get<Medico[]>(this.url+'/usuario/'+name);
+  }
+
+  addCita(medicoId:number,pacienteId:number,cita:Cita){
+    return this.http.post<Cita>(this.url+'/'+medicoId+'/addCita/'+pacienteId,cita);
+  }
+
+  addDiagnosticoToCita(medicoId:number,citaId:number,diagnostico:Diagnostico){
+    return this.http.post<Cita>(this.url+'/'+medicoId+'/addDiagnostico/'+citaId,diagnostico);
+  }
+
+  addPaciente(medico:Medico,pacienteId:number,medicoId:number){
+    return this.http.post<Paciente>(this.url+'/'+medicoId+'/addPaciente/'+pacienteId,medico);
+  }
+
+  deleteCita(citaId:number,pacienteId:number,medico:Medico){
+    return this.http.post<Paciente>(this.url+'/'+medico.id+'/deleteCita/'+citaId+'/paciente/'+pacienteId,medico);
+  }
 }

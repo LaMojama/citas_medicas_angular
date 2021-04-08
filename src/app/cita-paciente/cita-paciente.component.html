@@ -1,0 +1,35 @@
+<div class="container">
+    <h1 class="display-5">Lista de Citas</h1>
+    <p class="lead">
+        Estas son tus citas:
+      </p>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Fecha y Hora</th>
+                <th scope="col">Motivo Cita</th>
+                <th scope="col">Diagnostico ID</th>
+                <th scope="col">Diagnostico ValoracionEspecialista</th>
+                <th scope="col">Diagnostico Enfermedad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cita of paciente.citas">
+                <th scope="row">{{cita.cita_id}}</th>
+                <td>{{cita.fechaHora | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td>{{cita.motivoCita}}</td>
+                <td>{{cita.diagnostico.diagnostico_id}}</td>
+                <td>{{cita.diagnostico.valoracionEspecialista}}</td>
+                <td>{{cita.diagnostico.enfermedad}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="btn-group" role="group" aria-label="Basic outlined example">
+        <button class="btn btn-outline-secondary" type="button" [routerLink]="['/citasPaciente/pedirCita',paciente.id]">Pedir cita</button>
+        <button class="btn btn-outline-secondary" type="button" [routerLink]="['/citasPaciente/cambioCita',paciente.id]">Pedir cambio de cita</button>
+        <button class="btn btn-outline-danger" type="button" [routerLink]="['/citasPaciente/cancelarCita',paciente.id]">Cancelar Cita</button>
+    </div>
+    <p></p>
+<button type="button" name="button" class="btn btn-outline-info" [routerLink]="['/pacientes',paciente.id]">Volver</button>
+</div>

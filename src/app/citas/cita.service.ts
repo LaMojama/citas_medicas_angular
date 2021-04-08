@@ -36,4 +36,12 @@ export class CitaService {
   delete(id:number):Observable<Cita>{
     return this.http.delete<Cita>(this.url+'/'+id);
   }
+
+  deleteCitaFromMedico(medico_id:number,cita:Cita):Observable<Cita>{
+    return this.http.post<Cita>(this.url+'/deleteCitaFromMedico/'+medico_id,cita);
+  }
+
+  deleteDiagnosticoFromCita(cita_id:number,cita:Cita):Observable<Cita>{
+    return this.http.post<Cita>(this.url+'/deleteDiagnosticoFromCita/'+cita_id,cita);
+  }
 }

@@ -1,0 +1,17 @@
+<div class="container">
+
+    <div class="card-body">
+        <form>
+            <div class="form-group row">
+                <label for="id_paciente" class="col-form-label col-sm-2">Paciente ID</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" required name="id_paciente" [(ngModel)]="id_paciente" #idpaciente="ngModel">
+                    <div *ngIf="idpaciente?.errors?.required">
+                        Campo necesario
+                      </div>
+                </div>
+            </div>
+            <button class="btn btn-outline-success" role="button" (click)='addPaciente()'>Añadir Paciente</button>
+        </form>
+    </div>
+</div>

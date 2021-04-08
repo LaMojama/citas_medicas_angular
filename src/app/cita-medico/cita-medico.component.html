@@ -1,0 +1,40 @@
+<div class="container">
+    <h1 class="display-5">Lista de Citas</h1>
+    <p class="lead">
+        Estas son tus citas:
+      </p>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Fecha y Hora</th>
+                <th scope="col">Motivo Cita</th>
+                <th scope="col">Valoración Especialista</th>
+                <th scope="col">Enfermedad</th>
+                <th scope="col">Editar Cita</th>
+                <th scope="col">Editar Diagnostico</th>
+                <th scope="col">Eliminar Cita</th>
+                <th scope="col">Eliminar Diagnostico</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cita of medico.citas">
+                <th scope="row">{{cita.cita_id}}</th>
+                <td>{{cita.fechaHora | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td>{{cita.motivoCita}}</td>
+                <td>{{cita.diagnostico.valoracionEspecialista}}</td>
+                <td>{{cita.diagnostico.enfermedad}}</td>
+                <td><button type="button" name="button" class="btn btn-outline-primary" [routerLink]="['/citasMedico',medico.id,'form',cita.cita_id]">Editar Cita</button></td>
+                <td><button type="button" name="button" class="btn btn-outline-primary" [routerLink]="['/diagnosticos',cita.diagnostico.diagnostico_id,'form',medico.id]">Editar Diagnostico</button></td>
+                <td><button type="button" name="button" class="btn btn-outline-danger" [routerLink]="['/citasMedico',medico.id,'cancelarCita',cita.cita_id]">Eliminar Cita</button></td>
+                <td><button type="button" name="button" class="btn btn-outline-danger" (click)="deleteDiagnostico(cita)">Eliminar Diagnostico</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="btn-group" role="group" aria-label="Basic outlined example">
+    <button class="btn btn-outline-secondary" type="button" [routerLink]="['/citasMedico/addCita',medico.id]">Añadir Cita</button>
+    <button class="btn btn-outline-secondary" type="button" [routerLink]="['/citasMedico/addDiagnostico',medico.id]">Añadir Diagnostico a Cita</button>
+</div>
+<p></p>
+<button type="button" name="button" class="btn btn-outline-info" [routerLink]="['/medicos',medico.id]">Volver</button>
+</div>

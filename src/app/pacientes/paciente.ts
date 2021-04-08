@@ -6,11 +6,11 @@ export class Paciente {
     nombre: string;
     apellidos: string;
     usuario: string;
-    NSS: string;
     clave: string;
     numTarjeta: string;
     telefono: string;
     direccion: string;
     citas: Cita[];
     medicos: Medico[];
+    nss: string;
 }

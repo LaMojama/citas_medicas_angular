@@ -1,0 +1,29 @@
+<div class="container">
+
+    <div class="card-body">
+        <form>
+            <div class="form-group row">
+                <label for="pacienteId" class="col-form-label col-sm-2">ID Cita</label>
+                <div class="col-sm-6">
+                    <input id="idcita" type="text" class="form-control" required name="ID Cita" [(ngModel)]="cita.cita_id" #idcita="ngModel">
+                    <div *ngIf="idcita?.errors?.required">
+                        Campo necesario
+                      </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="fechaHora" class="col-form-label col-sm-2">Fecha y Hora</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="fechaHora" [(ngModel)]="cita.fechaHora">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="motivoCita" class="col-form-label col-sm-2">Motivo Cita</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="motivoCita" [(ngModel)]="cita.motivoCita">
+                </div>
+            </div>
+            <button class="btn btn-outline-success" role="button" (click)='updateCita()'>Cambiar Cita</button>
+        </form>
+    </div>
+</div>

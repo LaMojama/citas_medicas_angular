@@ -6,18 +6,24 @@
             <div class="form-group row">
                 <label for="valoracionEspecialista" class="col-form-label col-sm-2">Valoracion Especialista</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="valoracionEspecialista" [(ngModel)]="diagnostico.valoracionEspecialista">
+                    <input type="text" class="form-control" required name="valoracionEspecialista" [(ngModel)]="diagnostico.valoracionEspecialista" #valoracionEspecialista="ngModel">
+                    <div *ngIf="valoracionEspecialista?.errors?.required">
+                        Campo necesario
+                      </div>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="enfermedad" class="col-form-label col-sm-2">Enfermedad</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="enfermedad" [(ngModel)]="diagnostico.enfermedad">
+                    <input type="text" class="form-control" required name="enfermedad" [(ngModel)]="diagnostico.enfermedad" #enfermedad="ngModel">
+                    <div *ngIf="enfermedad?.errors?.required">
+                        Campo necesario
+                      </div>
                 </div>
             </div>
-            <button class="btn btn-success" role="button" (click)='create()' *ngIf="!diagnostico.diagnostico_id else elseBlock">Guardar</button>
+            <button class="btn btn-outline-success" role="button" (click)='create()' *ngIf="!diagnostico.diagnostico_id else elseBlock">Guardar</button>
             <ng-template #elseBlock>
-                <button class="btn btn-success" role="button" (click)='update()'>Actualizar</button>
+                <button class="btn btn-outline-success" role="button" (click)='update()'>Actualizar</button>
             </ng-template>
         </form>
     </div>

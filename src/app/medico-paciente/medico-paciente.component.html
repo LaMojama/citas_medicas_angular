@@ -1,0 +1,26 @@
+<div class="container">
+    <h1 class="display-5">Lista de Médicos</h1>
+    <p class="lead">
+      Estos son tus médicos:
+    </p>    
+    <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">NumColegiado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let medico of paciente.medicos">
+            <th scope="row">{{medico.id}}</th>
+            <td>{{medico.nombre}}</td>
+            <td>{{medico.apellidos}}</td>
+            <td>{{medico.numColegiado}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p></p>
+<button type="button" name="button" class="btn btn-outline-info" [routerLink]="['/pacientes',paciente.id]">Volver</button>
+    </div>

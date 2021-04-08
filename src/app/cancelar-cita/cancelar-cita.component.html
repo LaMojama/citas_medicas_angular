@@ -1,0 +1,26 @@
+<div class="container">
+
+    <div class="card-body">
+        <form>
+            <div class="form-group row">
+                <label for="citaId" class="col-form-label col-sm-2">ID Cita</label>
+                <div class="col-sm-6">
+                    <input id="idcita" type="text" class="form-control" required name="ID Cita" [(ngModel)]="cita_id" #idcita="ngModel">
+                    <div *ngIf="idcita?.errors?.required">
+                        Campo necesario
+                      </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="medicoId" class="col-form-label col-sm-2">ID Medico</label>
+                <div class="col-sm-6">
+                    <input id="idmedico" type="text" class="form-control" required name="ID Medico" [(ngModel)]="medico_id" #idmedico="ngModel">
+                    <div *ngIf="idmedico?.errors?.required">
+                        Campo necesario
+                      </div>
+                </div>
+            </div>
+            <button class="btn btn-outline-success" role="button" (click)='deleteCita()'>Cancelar Cita</button>
+        </form>
+    </div>
+</div>
